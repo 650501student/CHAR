@@ -20,7 +20,7 @@
 # 3 Системные требования
 ## 3.1 Функциональные требования
 ### 3.1.1 Главное меню
-https://github.com/650501student/CHAR/blob/master/docs/mockups/Menu.png
+![](https://github.com/650501student/CHAR/blob/master/docs/mockups/Menu.png)
 Должно содержать кнопки:
 + Начала работы в режиме практики;
 + Начала работы в режиме тренировки;
