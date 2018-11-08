@@ -16,22 +16,22 @@
 <a name="2.1"/>
 
 # Practice Button
-![Practice]()  
+![Practice](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/practiceActivityDiagram.PNG)  
 
 <a name="2.2"/>
 
 # Training Button
-![Training Button](.png)  
+![Training Button](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/trainingActivityDiagram.PNG)  
 
 <a name="2.3"/>
 
 # Reference Button
-![Reference Button](.png)
+![Reference Button](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/referenceActivityDiagram.PNG)
 
 <a name="2.4"/>
 
 # Exit Button
-![Exit Button](.png)
+![Exit Button](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/exitActivityDiagram.PNG)
 
 # Меню окна результата
 <a name="2.5"/>
