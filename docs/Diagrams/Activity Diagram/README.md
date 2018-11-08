@@ -32,14 +32,3 @@
 
 # Exit Button
 ![Exit Button](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/exitActivityDiagram.PNG)
-
-# Меню окна результата
-<a name="2.5"/>
-
-# Retry Button
-![Retry Button](.png)
-
-<a name="2.6"/>
-
-# Exit Button
-![Exit Button](.png)
