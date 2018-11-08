@@ -29,7 +29,7 @@
 
 # 2 Варианты использования
 
-![](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/usecaseDiagg.jpg)
+![](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/usecaseDiagr.jpg)
 
 <a name="2.1"/>
 
