@@ -16,7 +16,7 @@
 <a name="2.1"/>
 
 # Practice Button
-![Practice](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/practiceActivityDiagram.PNG)  
+![Practice](https://github.com/650501student/CHAR/blob/master/docs/Diagrams/Activity%20Diagram/practiceActivityDiag.PNG)  
 
 <a name="2.2"/>
 
