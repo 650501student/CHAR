@@ -6,5 +6,4 @@
 * [Глоссарий](Glossary/Glossary.md)
 * [Диаграмма классов](ClassDiagram/classDiagram.md)
 * [Диаграмма развертывания](DeploymentDiagram/deploymentDiagram.md)
-* [Диаграмма компонентов](ComponentDiagram/ComponentDiagram.png)
 * [Диаграмма состояний](StateDiagram/stateDiagram.md)
