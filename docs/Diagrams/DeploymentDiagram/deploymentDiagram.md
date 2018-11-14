@@ -1,3 +1,3 @@
 # Диаграмма развёртывания
 
-![](DeploymentDiagram.PNG)
+![](deploymentDiagr.png)
