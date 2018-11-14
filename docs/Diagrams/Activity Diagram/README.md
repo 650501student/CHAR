@@ -7,10 +7,6 @@
 * [Training Button](#2.2)  
 * [Reference Button](#2.3)  
 * [Exit Button](#2.4)  
-## Меню окна результата
-* [Retry](#2.5)  
-* [Ok](#2.6)  
-
 
 # Главное меню
 <a name="2.1"/>
