@@ -4,7 +4,7 @@
 * [Поток событий](UseCase.md)
 * [Диаграмма последовательности](SequenceDiagram/sequenceDiagr.jpg)
 * [Глоссарий](Glossary/Glossary.md)
-* [Диаграмма классов](ClassDiagram/ClassDiagram.png)
+* [Диаграмма классов](ClassDiagram/classDiagram.md)
 * [Диаграмма развертывания](DeploymentDiagram/DeploymentDiagram.png)
 * [Диаграмма компонентов](ComponentDiagram/ComponentDiagram.png)
 * [Диаграммы состояний](StateDiagram/StateDiagramFull.jpg)
