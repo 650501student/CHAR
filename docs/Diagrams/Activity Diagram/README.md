@@ -8,7 +8,6 @@
 * [Reference Button](#2.3)  
 * [Exit Button](#2.4)  
 
-# Главное меню
 <a name="2.1"/>
 
 # Practice Button
