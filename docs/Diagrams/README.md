@@ -5,5 +5,5 @@
 * [Диаграмма последовательности](SequenceDiagram/README.md)
 * [Глоссарий](Glossary/Glossary.md)
 * [Диаграмма классов](ClassDiagram/classDiagram.md)
-* [Диаграмма развертывания](DeploymentDiagram/deploymentDiagram.md)
+* [Диаграмма компонентов](DeploymentDiagram/deploymentDiagram.md)
 * [Диаграмма состояний](StateDiagram/stateDiagram.md)
