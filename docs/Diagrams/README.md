@@ -7,4 +7,4 @@
 * [Диаграмма классов](ClassDiagram/classDiagram.md)
 * [Диаграмма развертывания](DeploymentDiagram/DeploymentDiagram.png)
 * [Диаграмма компонентов](ComponentDiagram/ComponentDiagram.png)
-* [Диаграммы состояний](StateDiagram/StateDiagramFull.jpg)
+* [Диаграмма состояний](StateDiagram/StateDiagram.jpg)
