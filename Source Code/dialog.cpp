@@ -40,11 +40,11 @@ void Dialog::refClicked()
 }
 void Dialog::newPracticeWindow()
 {
-    /*Test *test = new Test;
+    Test *test = new Test;
     test->show();
-    test->setFixedSize(700,450);//фиксированный размер окна
-    test->move(myMove());       //перемещение окна на экране
-    this->close();  */            //закрытие текущего окна
+    test->setFixedSize(700,450);    //фиксированный размер окна
+    test->move(myMove());           //перемещение окна на экране
+    this->close();                  //закрытие текущего окна
 }
 void Dialog::newTrainingWindow()
 {
