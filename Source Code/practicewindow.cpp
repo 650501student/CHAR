@@ -17,20 +17,20 @@ Test::Test()
     label->setText(beginningSelect());              //добавление случайных слов в label
     label->setFixedHeight(70);
 
-    tlabel = new QLabel;
-    tlabel->setText("Time: " + QString::number(tmrRemainingSec));
-    tlabel->setFixedHeight(70);
+    timerLabel = new QLabel;
+    timerLabel->setText("Time: " + QString::number(tmrRemainingSec));
+    timerLabel->setFixedHeight(70);
 
-    ledit = new QLineEdit;
-    ledit->setFixedHeight(70);
+    inputField = new QLineEdit;
+    inputField->setFixedHeight(70);
     QVBoxLayout *lay = new QVBoxLayout;
-    lay->addWidget(tlabel);
+    lay->addWidget(timerLabel);
     lay->addWidget(label);
-    lay->addWidget(ledit);
+    lay->addWidget(inputField);
     setLayout(lay);
 
     //сигнал textEdited не вызывается при изменении строки программно
-    connect(ledit,SIGNAL(textEdited(QString)), this, SLOT(inputLetterValidation()));
+    connect(inputField,SIGNAL(textEdited(QString)), this, SLOT(inputLetterValidation()));
 
     tmr = new QTimer;
     tmr->setInterval(1000);
@@ -76,9 +76,9 @@ QString Test::select()
 
 QString Test::beginningSelect()
 {
-    for(int i=0;i<20;i++)   //цикл вывода 20-и слов
-        j.append(select()); //добавление нового слова
-    return j;
+    for(int i=0;i<20;i++)       //цикл вывода 20-и слов
+        str.append(select());   //добавление нового слова
+    return str;
 }
 
 void Test::newResult()
@@ -90,19 +90,19 @@ void Test::newResult()
 
 void Test::inputLetterValidation()  //сравнение слов
 {
-    QString ae = ledit->text();     //запись в QString ae текста из lineedit
+    QString ae = inputField->text();//запись в QString ae текста из lineedit
     ae = ae.right(1);               //последний введённый в lineedit символ
     if(ae == " ")                   //если клавиша пробел
         spaceEvent();
 }
 void Test::spaceEvent() //нажатие на пробел - сравенение введённого и переход к следующему слову
 {
-    QString t = label->text();  //в строку st2 записывается содержимое label'а
-    int s = t.indexOf(" ", 0);  //нахождение индекса первого пробела(также длина слова)
-    QString word = t.left(s+1); //в word хранится первое слово с пробелом
-    if(ledit->text() == word)   //если введено правильно
+    QString t = label->text();      //в строку st2 записывается содержимое label'а
+    int s = t.indexOf(" ", 0);      //нахождение индекса первого пробела(также длина слова)
+    QString word = t.left(s+1);     //в word хранится первое слово с пробелом
+    if(inputField->text() == word)  //если введено правильно
     {
-        rightLetters += s;      //введённые буквы + кол-во букв в слове
+        rightLetters += s;          //введённые буквы + кол-во букв в слове
         rightWords++;
     }
     else
@@ -113,14 +113,15 @@ void Test::spaceEvent() //нажатие на пробел - сравенени�
     t = t.mid(s+1);         //записывается строка без первого слова и пробела
     t.append(select());     //в конце добавляется рандомное слово из словаря
     label->setText(t);      //в label записывается строка
-    ledit->clear();         //чистка lineedit'а для последующего ввода
+    inputField->clear();    //чистка lineedit'а для последующего ввода
 }
 
 void Test::updateTime()
 {
     --tmrRemainingSec;          //оставшееся время -1
     if ( tmrRemainingSec > 0)   //если ещё есть время
-        tlabel->setText("Time: " + QString::number(tmrRemainingSec));
+        timerLabel->setText("Time: " + QString::number(tmrRemainingSec));
     else
     tmr->stop();
 }
+
