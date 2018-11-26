@@ -16,9 +16,9 @@ private:
     int wrongLetters, rightLetters; //количество (не)правильно введённых букв
     int rightWords, wrongWords;     //количество (не)правильно введённых слов
     int tmrRemainingSec;            //время на ввод
-    QString j;                      //вся строка в label
-    QLineEdit *ledit;               //поле ввода
-    QLabel *tlabel;                 //label для таймера
+    QString str;                    //вся строка в label
+    QLineEdit *inputField;          //поле ввода
+    QLabel *timerLabel;             //label для таймера
     QLabel *label;                  //label для слов ввода
     QString filename;               //путь к файлу
     QTimer *tmr;                    //таймер
