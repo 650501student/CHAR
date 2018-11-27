@@ -17,6 +17,7 @@ private:
     QTimer *tmr;
     QStringList li;
     QString *filename;
+    QPoint myMove();
 
 private slots:
     void newMenuWindow();       //выход в меню
