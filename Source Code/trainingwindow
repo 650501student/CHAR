@@ -1,0 +1,145 @@
+#include "trainingheader.h"
+Training::Training()
+{
+    QTime midnight(0, 0, 0);                        //QTime для автоматической рандомизации
+    qsrand(midnight.secsTo(QTime::currentTime()));
+    setWindowTitle("Training");
+    setStyleSheet("background-color:white;");
+    filename = "C:/train.txt";                      //присваивание имени файла
+    nameLevel = new QLabel;
+    nameLevel->setFixedHeight(70);
+    label = new QLabel;
+    label->setFixedHeight(70);
+    hintButton = new QPushButton("&Hint");
+    hintButton->setFixedSize(100,50);
+    hintButton->setStyleSheet("QPushButton{background:#858585;}");
+    inputField = new QLineEdit;
+    inputField->setFixedHeight(70);
+    connect(hintButton,SIGNAL(clicked()),this,SLOT(hintClicked()));
+
+    QVBoxLayout *vlay = new QVBoxLayout;
+    vlay->addWidget(nameLevel);
+    vlay->addWidget(label);
+    vlay->addWidget(inputField);
+    vlay->addWidget(hintButton);
+    setLayout(vlay);
+
+    currentLevel=0;
+    sList = fileToList();   //файл → массив строк
+    setAll();               //отображение текста
+    connect(inputField,SIGNAL(textEdited(QString)),this,SLOT(inputValidation()));
+}
+
+void Training::setAll()
+{
+    nameLevel->setText(sList.at(currentLevel++));
+    label->setText(trainSelect());
+}
+
+QStringList Training::fileToList()
+{
+    QFile file(filename);
+    try{
+        if(!file.open(QFile::ReadOnly | QFile::Text))
+        {
+            QString *exception=new QString("Can't open file!");
+            throw exception;
+        }
+    }
+    catch(QString *ex)
+    {
+        file.close();
+        QMessageBox::warning(0,"Warning", ex->toLocal8Bit().constData());
+        exit(0);
+    }
+    QTextStream tStream(&file);             //QTextStream для работы с текстом
+    while (1)
+    {
+        QString line = tStream.readLine();  //считывание строки из tStream
+        if (line.isNull())                  //если строка пустая
+            break;                          //выход из цикла
+        else
+            sList.append(line);             //добавление строки
+    }
+    file.close(); //закрытие файла
+    return sList; //возвращение массива строк
+}
+
+void Training::hintClicked()
+{
+    QMessageBox *hBox = new QMessageBox(QMessageBox::NoIcon, "Hint",
+                                        "First you need to know the initial positions "
+                                        "of the fingers - each finger is located on a certain key. "
+                                        "The starting position is as follows: the main keys are F and J. "
+                                        "You can find these positions without even looking at the keyboard; "
+                                        "feel for small \"protrusions\" on the keys F and J and put index "
+                                        "fingers on these keys. "
+                                        "Put the fingers of the left hand on the keys "
+                                        "F, D, S and A, and the fingers of the right hand - "
+                                        "on the keys J, K, L and \";\". This arrangement is called the "
+                                        "\"main row\". After pressing the key, be sure to put your fingers "
+                                        "back on the main row. This will help you stop looking at the keyboard. "
+                                        "Now when you know the basics, you can start investigating blind printing!");
+    hBox->exec();
+}
+
+QString Training::trainSelect()
+{
+    QString result;
+    for(int j=0; j<10; j++)
+    {
+        //добавляет случайный символ из строки words в строку result
+        for (int i = 0; i < (2 + rand() % 3); i++)  //кол-во букв [1,5)
+            result.append(sList[currentLevel].at(rand()%sList[currentLevel].size()));
+        result.append(" ");                         //добавление пробела
+    }
+    currentLevel++;
+    return result;
+}
+
+void Training::inputValidation()
+{
+    QString lineStr = inputField->text();
+    int lSize = inputField->text().size(); //количество символов
+    //lblStr - первые n символов из lbel, где n - кол-во введённых символов в
+    //QLineEdit
+    QString lblStr = label->text().left(lSize);
+    if(lblStr != lineStr) //если строки не равны
+        label->setStyleSheet("color: rgb(255, 0, 0);"); //красная строка
+    else //если строки равны
+        label->setStyleSheet("color: rgb(0, 0, 0);"); //чёрная строка + " " тк в lbel есть пробел в конце строки
+
+    if(label->text() == inputField->text() + " ")
+    {
+        if(checkEndOfStrList())     //если конец массива строк
+        {
+            newMenuWindow();
+            return;
+        }
+        else
+        {
+            inputField->clear();    //очистка поля ввода
+            setAll();               //переход на следующий уровень
+        }
+    }
+}
+
+bool Training::checkEndOfStrList()
+{
+    if(sList[--currentLevel] == sList.last()) //последняя строка в массиве строк
+    {
+        QMessageBox *congrats = new QMessageBox(QMessageBox::NoIcon,
+                                                "CONGRATULATIONS!","You have completed training");
+        congrats->exec();
+        return true;
+    }
+    currentLevel++;
+    return false;
+}
+
+void Training::newMenuWindow()
+{
+    Dialog *d = new Dialog;
+    d->show();
+    this->close();
+}
